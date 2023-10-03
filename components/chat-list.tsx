@@ -3,11 +3,14 @@ import { ChatCard } from "./chat-card";
 export default function ChatList() {
   const chatCards = [];
 
+  const state = ["new", "sent", "received", "seen", "sending"];
+
   for (let i = 0; i < 20; i++) {
     chatCards.push(
       <ChatCard
         key={i}
         sender={`Sayan Das`}
+        avatar={`https://github.com/shadcn.png`}
         message={`Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore est
           cum soluta officia ducimus dolorem. Id, illo eum aperiam nobis placeat
           tenetur tempora, blanditiis necessitatibus atque neque iusto! Sequi,
@@ -30,6 +33,8 @@ export default function ChatList() {
           rerum dicta nisi sapiente esse nihil, impedit libero odit aut? Non,
           incidunt cumque temporibus ipsum animi a! Saepe magni laudantium
           perspiciatis vitae itaque quia illo reprehenderit.`}
+        state={state[Math.floor(Math.random() * state.length)]}
+        newMessageCount={Math.floor(Math.random() * 9999)}
       />
     );
   }
